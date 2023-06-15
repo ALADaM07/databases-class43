@@ -16,36 +16,47 @@ connection.connect((error) => {
   console.log('Connected to the server!!');
 });
 
-queries.forEach((query) => {
-  for (let i = 0; i <= 9; i++) {
-    const queryKey = Object.keys(query)[i];
-    const queryString = query[queryKey];
+const executeQuery = () => {
+  queries.forEach(async (query) => {
+    for (let i = 0; i <= 9; i++) {
+      try {
+        const queryKey = Object.keys(query)[i];
+        const queryString = query[queryKey];
 
-    connection.query(queryString, (error, results) => {
-      if (error) {
-        console.error(`Error executing query "${queryKey}": ${error}`);
-        return;
-      }
-      if (queryKey === 'rotterdam_Population') {
-        const population = results[0].population;
-        console.log(`Results for query "${queryKey}":`);
-        console.log(`${population}`);
-        console.log('-----------------------------');
-      } else if (queryKey === 'the_Population_Of_The_World') {
-        const worldPopulation = results[0].the_population_of_the_world;
-        console.log(`Results for query "${queryKey}":`);
-        console.log(`${worldPopulation}`);
-        console.log('-----------------------------');
-      } else {
-        const countriesName = results.map((result) => result.name);
-        console.log(`Results for query "${queryKey}":`);
-        console.log(countriesName.join(', '));
-        console.log('-----------------------------');
-      }
-    });
-  }
-});
+        const results = await new Promise((resolve, reject) => {
+          connection.query(queryString, (error, results) => {
+            if (error) {
+              reject(error);
+            } else {
+              resolve(results);
+            }
+          });
+        });
 
+        if (queryKey === 'rotterdam_Population') {
+          const population = results[0].population;
+          console.log(`Results for query "${queryKey}":`);
+          console.log(`${population}`);
+          console.log('-----------------------------');
+        } else if (queryKey === 'the_Population_Of_The_World') {
+          const worldPopulation = results[0].the_population_of_the_world;
+          console.log(`Results for query "${queryKey}":`);
+          console.log(`${worldPopulation}`);
+          console.log('-----------------------------');
+        } else {
+          const countriesName = results.map((result) => result.name);
+          console.log(`Results for query "${queryKey}":`);
+          console.log(countriesName.join(', '));
+          console.log('-----------------------------');
+        }
+      } catch (error) {
+        console.error(`Error executing query: ${error}`);
+      }
+    }
+  });
+};
+
+executeQuery();
 connection.end((error) => {
   if (error) {
     console.error('Error disconnecting from the server:', error);
