@@ -7,7 +7,7 @@ module.exports = [
         author_name: 'John Doe',
         university: 'Jane Smith University',
         date_of_birth: new Date('1991-03-07'),
-        h_index: 0,
+        h_index: 12,
         gender: 'male',
       },
       {
@@ -15,7 +15,7 @@ module.exports = [
         author_name: 'Jane Smith',
         university: 'John Doe University',
         date_of_birth: new Date('1985-12-15'),
-        h_index: 0,
+        h_index: 8,
         gender: 'female',
       },
       {
@@ -23,7 +23,7 @@ module.exports = [
         author_name: 'Michael Johnson',
         university: 'Sarah Davis University',
         date_of_birth: new Date('1978-08-22'),
-        h_index: 0,
+        h_index: 15,
         gender: 'male',
       },
       {
@@ -31,7 +31,7 @@ module.exports = [
         author_name: 'Emily Brown',
         university: 'Robert Wilson University',
         date_of_birth: new Date('1995-06-30'),
-        h_index: 0,
+        h_index: 5,
         gender: 'female',
       },
       {
@@ -39,7 +39,7 @@ module.exports = [
         author_name: 'David Lee',
         university: 'Emily Johnson University',
         date_of_birth: new Date('1990-05-12'),
-        h_index: 0,
+        h_index: 10,
         gender: 'male',
       },
       {
@@ -47,7 +47,7 @@ module.exports = [
         author_name: 'Sarah Davis',
         university: 'Michael Johnson University',
         date_of_birth: new Date('1988-09-17'),
-        h_index: 0,
+        h_index: 9,
         gender: 'female',
       },
       {
@@ -55,7 +55,7 @@ module.exports = [
         author_name: 'Robert Wilson',
         university: 'David Lee University',
         date_of_birth: new Date('1975-11-25'),
-        h_index: 0,
+        h_index: 7,
         gender: 'male',
       },
       {
@@ -63,7 +63,7 @@ module.exports = [
         author_name: 'Jennifer Taylor',
         university: 'Daniel Smith University',
         date_of_birth: new Date('1992-07-18'),
-        h_index: 0,
+        h_index: 14,
         gender: 'female',
       },
       {
@@ -71,7 +71,7 @@ module.exports = [
         author_name: 'Daniel Smith',
         university: 'Jennifer Taylor University',
         date_of_birth: new Date('1986-04-10'),
-        h_index: 0,
+        h_index: 11,
         gender: 'male',
       },
       {
@@ -79,7 +79,7 @@ module.exports = [
         author_name: 'Laura Johnson',
         university: 'Paul Davis University',
         date_of_birth: new Date('1993-02-23'),
-        h_index: 0,
+        h_index: 8,
         gender: 'female',
       },
       {
@@ -87,7 +87,7 @@ module.exports = [
         author_name: 'Paul Davis',
         university: 'Laura Johnson University',
         date_of_birth: new Date('1980-10-05'),
-        h_index: 0,
+        h_index: 13,
         gender: 'male',
       },
       {
@@ -95,7 +95,7 @@ module.exports = [
         author_name: 'Sophia Brown',
         university: 'Ethan Wilson University',
         date_of_birth: new Date('1996-12-01'),
-        h_index: 0,
+        h_index: 6,
         gender: 'female',
       },
       {
@@ -103,7 +103,7 @@ module.exports = [
         author_name: 'Ethan Wilson',
         university: 'Sophia Brown University',
         date_of_birth: new Date('1984-06-14'),
-        h_index: 0,
+        h_index: 9,
         gender: 'male',
       },
       {
@@ -111,7 +111,7 @@ module.exports = [
         author_name: 'Olivia Garcia',
         university: 'Noah Anderson University',
         date_of_birth: new Date('1997-09-08'),
-        h_index: 0,
+        h_index: 4,
         gender: 'female',
       },
       {
@@ -119,7 +119,7 @@ module.exports = [
         author_name: 'Noah Anderson',
         university: 'Olivia Garcia University',
         date_of_birth: new Date('1983-03-29'),
-        h_index: 0,
+        h_index: 7,
         gender: 'male',
       },
     ],

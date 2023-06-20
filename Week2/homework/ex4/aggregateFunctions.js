@@ -1,6 +1,6 @@
 require('dotenv').config();
 const db = require('./db');
-const config = require('./db-config');
+const config = require('../ex1/db-config');
 
 const initializeDatabase = async () => {
   try {
@@ -8,41 +8,24 @@ const initializeDatabase = async () => {
 
     await db.useDatabaseQuery('homework_2');
 
-    await db
-      .executeQuery(
-        `SELECT
-    a.author_name AS author,
-    m.author_name AS mentor
-  FROM
-    authors a
-  JOIN
-    authors m ON a.mentor_id = m.author_id;`
-      )
-      .then((results) => {
-        console.log(`Successfully Joined: 
-        ${JSON.stringify(results)}`);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    const queries = require('./queries');
 
-    await db
-      .executeQuery(
-        `SELECT
-        a.*,
-        p.paper_title
-      FROM
-        authors a
-      LEFT JOIN
-        research_papers p ON a.author_id = p.author_id;`
-      )
-      .then((results) => {
-        console.log(`Successfully Left Joined: 
-        ${JSON.stringify(results)}`);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    for (const queryObject of queries) {
+      const { question, query } = queryObject;
+
+      await db
+        .executeQuery(query)
+        .then((results) => {
+          console.log(`Query: ${question}
+          --------------------------------------------`);
+          console.log(`Results: ${JSON.stringify(results)}
+          --------------------------------------------`);
+        })
+        .catch((error) => {
+          console.error(`Error executing query: ${query}`);
+          console.error(error);
+        });
+    }
 
     db.disconnect();
   } catch (error) {
