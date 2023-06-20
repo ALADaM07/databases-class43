@@ -12,6 +12,11 @@ const initializeDatabase = async () => {
 
     await db.insertDataToTableQuery();
 
+    await db.executeQuery(
+      `UPDATE authors
+      SET mentor_id = ROUND(RAND() * 14) + 1;`
+    );
+
     db.disconnect();
   } catch (error) {
     console.error('Error initializing the database:', error);

@@ -24,11 +24,6 @@ const initializeDatabase = async () => {
       'authors(author_id)'
     );
 
-    await db.executeQuery(
-      `UPDATE authors
-      SET mentor_id = ROUND(RAND() * 14) + 1;`
-    );
-
     db.disconnect();
   } catch (error) {
     console.error('Error initializing the database:', error);
