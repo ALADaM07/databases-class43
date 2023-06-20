@@ -1,6 +1,6 @@
 require('dotenv').config();
 const db = require('./db');
-const config = require('./db-config');
+const config = require('../ex1/db-config');
 
 const initializeDatabase = async () => {
   try {
@@ -18,15 +18,15 @@ const initializeDatabase = async () => {
 
     await db.alterTableQuery(
       'authors',
-      'mentor INT',
+      'mentor_id INT',
       'fk_mentor',
-      'mentor',
+      'mentor_id',
       'authors(author_id)'
     );
 
     await db.executeQuery(
       `UPDATE authors
-      SET mentor = ROUND(RAND() * 14) + 1;`
+      SET mentor_id = ROUND(RAND() * 14) + 1;`
     );
 
     db.disconnect();

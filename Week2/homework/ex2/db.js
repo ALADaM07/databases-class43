@@ -4,7 +4,7 @@ const tableInfo = require('./table-info');
 let connection;
 
 const createConnection = (config, error) => {
-  const dbConfig = require('./db-config');
+  const dbConfig = require('../ex1/db-config');
   connection = mysql.createConnection(dbConfig);
   if (error) {
     console.error(`Error connecting to the database!!`);

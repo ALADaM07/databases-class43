@@ -1,6 +1,6 @@
 require('dotenv').config();
 const db = require('./db');
-const config = require('./db-config');
+const config = require('../ex1/db-config');
 
 const initializeDatabase = async () => {
   try {
